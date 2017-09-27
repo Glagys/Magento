@@ -6,6 +6,8 @@
 namespace Training\Helloworld\Controller\Product;
 
 
+use Magento\Framework\EntityManager\EventManager;
+
 class Index extends \Magento\Framework\App\Action\Action {
     /**
      * @var \Magento\Catalog\Model\ProductFactory
