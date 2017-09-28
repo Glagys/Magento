@@ -9,6 +9,9 @@
 namespace Training\Seller\Controller\Seller;
 
 
+use Magento\Framework\Controller\ResultFactory;
+use Magento\Framework\View\Result\Page;
+
 class View extends AbstractAction {
     /**
      * Execute the action
@@ -31,10 +34,12 @@ class View extends AbstractAction {
             return null;
         }
 
-        echo '<h1>'.$seller->getName().'</h1>';
-        echo '<hr />';
-        echo '<p>#'.$seller->getIdentifier().'</p>';
-        echo '<hr />';
-        echo '<a href="/sellers.html">back to the list</a>';
+        $this->registry->register('current_seller', $seller);
+
+        /** @var Page $resultPage */
+        $resultPage = $this->resultFactory->create(ResultFactory::TYPE_PAGE);
+        $resultPage->getConfig()->getTitle()->set(__('Seller "%1"', $seller->getName()));
+
+        return $resultPage;
     }
 }
