@@ -40,8 +40,8 @@ class Edit extends AbstractAction
         $resultPage->getConfig()->getTitle()->prepend(__('Manage Sellers'));
         $resultPage->getConfig()->getTitle()->prepend(
             $model->getId()
-                ? __("Edit Seller #%1", $model->getIdentifier())
-                : __('New Seller')
+            ? __("Edit Seller #%1", $model->getIdentifier())
+            : __('New Seller')
         );
 
         return $resultPage;
